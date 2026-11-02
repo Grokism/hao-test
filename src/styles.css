@@ -54,6 +54,8 @@ body {
 
 /* --- Navigation Header --- */
 .navbar {
+  position: relative;
+  z-index: 500;
   display: flex;
   gap: 14px;
   align-items: center;

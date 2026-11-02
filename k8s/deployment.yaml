@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hao-test-fe
-  namespace: app-hao-test
+  namespace: bookins-paas
   labels:
     app: hao-test-fe
 spec:

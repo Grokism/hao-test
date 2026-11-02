@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hao-test-fe
-  namespace: app-hao-test
+  namespace: bookins-paas
 spec:
   type: ClusterIP
   selector:

@@ -93,9 +93,21 @@ function resolveRequestOrigin(req) {
   if (req.headers.origin) {
     return normalizeOrigin(req.headers.origin);
   }
-  const proto = (req.headers['x-forwarded-proto'] || req.protocol || 'https').split(',')[0].trim();
+  if (req.headers.referer) {
+    try {
+      return new URL(req.headers.referer).origin.toLowerCase();
+    } catch {
+      // fall through
+    }
+  }
   const host = (req.headers['x-forwarded-host'] || req.headers.host || '').split(',')[0].trim();
   if (host) {
+    const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1');
+    const rawProto = (req.headers['x-forwarded-proto'] || req.protocol || 'https')
+      .split(',')[0]
+      .trim()
+      .toLowerCase();
+    const proto = isLocal ? rawProto : 'https';
     return normalizeOrigin(`${proto}://${host}`);
   }
   return normalizeOrigin(process.env.APP_ORIGIN || '');

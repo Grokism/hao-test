@@ -5,7 +5,7 @@ set -euo pipefail
 
 # --- Config (override via env) ---
 IMAGE="${IMAGE:-ghcr.io/grokism/hao-test-fe:latest}"
-NAMESPACE="${NAMESPACE:-app-hao-test}"
+NAMESPACE="${NAMESPACE:-bookins-paas}"
 APP_SLUG="${APP_SLUG:-hao-test}"
 
 echo "==> Building image: ${IMAGE}"
