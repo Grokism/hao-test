@@ -180,7 +180,13 @@ export class LandingComponent implements OnInit {
   archetypeBadge = "Cooperative, HOA & DAO Governance Portal (Steward + Voting Member)";
   logoPath = "";
   heroPath = "";
-  roles = [
+  roles: Array<{
+    roleKey: string;
+    roleLabel: string;
+    purpose: string;
+    enrollmentPolicy: string;
+    scopeLabel?: string;
+  }> = [
   {
     "roleKey": "steward",
     "roleLabel": "Steward / Proposer",
@@ -201,7 +207,12 @@ export class LandingComponent implements OnInit {
   "Voting Member PermSet ballot casting with 1-PermSet-1-vote enforcement",
   "Live transparent tallying stored in isolated tenant MongoDB"
 ];
-  galleryAssets = [];
+  galleryAssets: Array<{
+    fileName: string;
+    assetPath: string;
+    slot?: string;
+    altText?: string;
+  }> = [];
 
   constructor(
     public auth: AuthService,

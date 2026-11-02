@@ -218,7 +218,13 @@ export class HomeComponent implements OnInit {
   activeRoleKey = 'member';
   activeRoleLabel = 'Member';
   activeScopeTag = '';
-  configuredRoles = [
+  configuredRoles: Array<{
+    roleKey: string;
+    roleLabel: string;
+    purpose: string;
+    enrollmentPolicy?: string;
+    scopeLabel?: string;
+  }> = [
   {
     "roleKey": "steward",
     "roleLabel": "Steward / Proposer",
