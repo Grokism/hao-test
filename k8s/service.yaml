@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hao-test-fe
+  namespace: app-hao-test
+spec:
+  type: ClusterIP
+  selector:
+    app: hao-test-fe
+  ports:
+    - port: 80
+      targetPort: 80
